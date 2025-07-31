@@ -1,0 +1,441 @@
+version: 1
+directus: 11.9.3
+vendor: postgres
+collections:
+  - collection: classes
+    meta:
+      accountability: all
+      archive_app_filter: true
+      archive_field: null
+      archive_value: null
+      collapse: open
+      collection: classes
+      color: null
+      display_template: null
+      group: null
+      hidden: false
+      icon: null
+      item_duplication_fields: null
+      note: null
+      preview_url: null
+      singleton: false
+      sort: null
+      sort_field: null
+      translations: null
+      unarchive_value: null
+      versioning: false
+    schema:
+      name: classes
+  - collection: schedule
+    meta:
+      accountability: all
+      archive_app_filter: true
+      archive_field: null
+      archive_value: null
+      collapse: open
+      collection: schedule
+      color: null
+      display_template: null
+      group: null
+      hidden: false
+      icon: null
+      item_duplication_fields: null
+      note: null
+      preview_url: null
+      singleton: false
+      sort: null
+      sort_field: null
+      translations: null
+      unarchive_value: null
+      versioning: false
+    schema:
+      name: schedule
+  - collection: schedule_classes
+    meta:
+      accountability: all
+      archive_app_filter: true
+      archive_field: null
+      archive_value: null
+      collapse: open
+      collection: schedule_classes
+      color: null
+      display_template: null
+      group: null
+      hidden: true
+      icon: import_export
+      item_duplication_fields: null
+      note: null
+      preview_url: null
+      singleton: false
+      sort: null
+      sort_field: null
+      translations: null
+      unarchive_value: null
+      versioning: false
+    schema:
+      name: schedule_classes
+fields:
+  - collection: classes
+    field: id
+    type: integer
+    meta:
+      collection: classes
+      conditions: null
+      display: null
+      display_options: null
+      field: id
+      group: null
+      hidden: true
+      interface: input
+      note: null
+      options: null
+      readonly: true
+      required: false
+      sort: 1
+      special: null
+      translations: null
+      validation: null
+      validation_message: null
+      width: full
+    schema:
+      name: id
+      table: classes
+      data_type: integer
+      default_value: nextval('classes_id_seq'::regclass)
+      max_length: null
+      numeric_precision: 32
+      numeric_scale: 0
+      is_nullable: false
+      is_unique: true
+      is_indexed: false
+      is_primary_key: true
+      is_generated: false
+      generation_expression: null
+      has_auto_increment: true
+      foreign_key_table: null
+      foreign_key_column: null
+  - collection: classes
+    field: name
+    type: string
+    meta:
+      collection: classes
+      conditions: null
+      display: null
+      display_options: null
+      field: name
+      group: null
+      hidden: false
+      interface: input
+      note: null
+      options:
+        placeholder: Enter the class name
+      readonly: false
+      required: false
+      sort: 2
+      special: null
+      translations: null
+      validation: null
+      validation_message: null
+      width: full
+    schema:
+      name: name
+      table: classes
+      data_type: character varying
+      default_value: null
+      max_length: 255
+      numeric_precision: null
+      numeric_scale: null
+      is_nullable: true
+      is_unique: false
+      is_indexed: false
+      is_primary_key: false
+      is_generated: false
+      generation_expression: null
+      has_auto_increment: false
+      foreign_key_table: null
+      foreign_key_column: null
+  - collection: classes
+    field: schedule
+    type: alias
+    meta:
+      collection: classes
+      conditions: null
+      display: null
+      display_options: null
+      field: schedule
+      group: null
+      hidden: false
+      interface: list-m2m
+      note: null
+      options: null
+      readonly: false
+      required: false
+      sort: 3
+      special:
+        - m2m
+      translations: null
+      validation: null
+      validation_message: null
+      width: full
+  - collection: schedule
+    field: id
+    type: integer
+    meta:
+      collection: schedule
+      conditions: null
+      display: null
+      display_options: null
+      field: id
+      group: null
+      hidden: true
+      interface: input
+      note: null
+      options: null
+      readonly: true
+      required: false
+      sort: 1
+      special: null
+      translations: null
+      validation: null
+      validation_message: null
+      width: full
+    schema:
+      name: id
+      table: schedule
+      data_type: integer
+      default_value: nextval('schedule_id_seq'::regclass)
+      max_length: null
+      numeric_precision: 32
+      numeric_scale: 0
+      is_nullable: false
+      is_unique: true
+      is_indexed: false
+      is_primary_key: true
+      is_generated: false
+      generation_expression: null
+      has_auto_increment: true
+      foreign_key_table: null
+      foreign_key_column: null
+  - collection: schedule
+    field: name
+    type: string
+    meta:
+      collection: schedule
+      conditions: null
+      display: null
+      display_options: null
+      field: name
+      group: null
+      hidden: false
+      interface: input
+      note: null
+      options:
+        placeholder: Enter the name of the schedule
+      readonly: false
+      required: false
+      sort: 2
+      special: null
+      translations: null
+      validation: null
+      validation_message: null
+      width: full
+    schema:
+      name: name
+      table: schedule
+      data_type: character varying
+      default_value: null
+      max_length: 255
+      numeric_precision: null
+      numeric_scale: null
+      is_nullable: true
+      is_unique: false
+      is_indexed: false
+      is_primary_key: false
+      is_generated: false
+      generation_expression: null
+      has_auto_increment: false
+      foreign_key_table: null
+      foreign_key_column: null
+  - collection: schedule
+    field: conflicts
+    type: alias
+    meta:
+      collection: schedule
+      conditions: null
+      display: null
+      display_options: null
+      field: conflicts
+      group: null
+      hidden: false
+      interface: list-m2m
+      note: null
+      options: null
+      readonly: false
+      required: false
+      sort: 3
+      special:
+        - m2m
+      translations: null
+      validation: null
+      validation_message: null
+      width: full
+  - collection: schedule_classes
+    field: id
+    type: integer
+    meta:
+      collection: schedule_classes
+      conditions: null
+      display: null
+      display_options: null
+      field: id
+      group: null
+      hidden: true
+      interface: null
+      note: null
+      options: null
+      readonly: false
+      required: false
+      sort: 1
+      special: null
+      translations: null
+      validation: null
+      validation_message: null
+      width: full
+    schema:
+      name: id
+      table: schedule_classes
+      data_type: integer
+      default_value: nextval('schedule_classes_id_seq'::regclass)
+      max_length: null
+      numeric_precision: 32
+      numeric_scale: 0
+      is_nullable: false
+      is_unique: true
+      is_indexed: false
+      is_primary_key: true
+      is_generated: false
+      generation_expression: null
+      has_auto_increment: true
+      foreign_key_table: null
+      foreign_key_column: null
+  - collection: schedule_classes
+    field: schedule_id
+    type: integer
+    meta:
+      collection: schedule_classes
+      conditions: null
+      display: null
+      display_options: null
+      field: schedule_id
+      group: null
+      hidden: true
+      interface: null
+      note: null
+      options: null
+      readonly: false
+      required: false
+      sort: 2
+      special: null
+      translations: null
+      validation: null
+      validation_message: null
+      width: full
+    schema:
+      name: schedule_id
+      table: schedule_classes
+      data_type: integer
+      default_value: null
+      max_length: null
+      numeric_precision: 32
+      numeric_scale: 0
+      is_nullable: true
+      is_unique: false
+      is_indexed: false
+      is_primary_key: false
+      is_generated: false
+      generation_expression: null
+      has_auto_increment: false
+      foreign_key_table: schedule
+      foreign_key_column: id
+  - collection: schedule_classes
+    field: classes_id
+    type: integer
+    meta:
+      collection: schedule_classes
+      conditions: null
+      display: null
+      display_options: null
+      field: classes_id
+      group: null
+      hidden: true
+      interface: null
+      note: null
+      options: null
+      readonly: false
+      required: false
+      sort: 3
+      special: null
+      translations: null
+      validation: null
+      validation_message: null
+      width: full
+    schema:
+      name: classes_id
+      table: schedule_classes
+      data_type: integer
+      default_value: null
+      max_length: null
+      numeric_precision: 32
+      numeric_scale: 0
+      is_nullable: true
+      is_unique: false
+      is_indexed: false
+      is_primary_key: false
+      is_generated: false
+      generation_expression: null
+      has_auto_increment: false
+      foreign_key_table: classes
+      foreign_key_column: id
+relations:
+  - collection: schedule_classes
+    field: classes_id
+    related_collection: classes
+    meta:
+      junction_field: schedule_id
+      many_collection: schedule_classes
+      many_field: classes_id
+      one_allowed_collections: null
+      one_collection: classes
+      one_collection_field: null
+      one_deselect_action: nullify
+      one_field: schedule
+      sort_field: null
+    schema:
+      table: schedule_classes
+      column: classes_id
+      foreign_key_table: classes
+      foreign_key_column: id
+      constraint_name: schedule_classes_classes_id_foreign
+      on_update: NO ACTION
+      on_delete: SET NULL
+  - collection: schedule_classes
+    field: schedule_id
+    related_collection: schedule
+    meta:
+      junction_field: classes_id
+      many_collection: schedule_classes
+      many_field: schedule_id
+      one_allowed_collections: null
+      one_collection: schedule
+      one_collection_field: null
+      one_deselect_action: nullify
+      one_field: conflicts
+      sort_field: null
+    schema:
+      table: schedule_classes
+      column: schedule_id
+      foreign_key_table: schedule
+      foreign_key_column: id
+      constraint_name: schedule_classes_schedule_id_foreign
+      on_update: NO ACTION
+      on_delete: SET NULL
