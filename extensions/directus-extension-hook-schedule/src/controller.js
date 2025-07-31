@@ -15,7 +15,7 @@ export async function handleScheduleAfterCreation(event, services) {
       conflicts: [2],
     });
 
-    console.log("Conflicts updated for schedule item:", createdItemId);
+    // console.log("Conflicts updated for schedule item:", createdItemId);
   } catch (error) {
     console.log("Schedule service error:", error);
   }
